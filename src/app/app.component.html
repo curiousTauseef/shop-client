@@ -23,24 +23,24 @@
         <li class="nav-item ml-0 ml-md-auto" ngbDropdown #dropdown="ngbDropdown">
           <a class="nav-link dropdown-toggle" ngbDropdownToggle>
             <i class="fas fa-user mr-1"></i>
-            <span *ngIf="!token">Account</span>
+            <span *ngIf="!token"> Account</span>
           </a>
           <div ngbDropdownMenu class="dropdown-menu">
             <a ngbDropdownItem *ngIf="token" (click)="closeDropdown(dropdown); collapse();" class="dropdown-item"
               [routerLink]="['/profile']">
-              <i class="fas fa-user-circle" aria-hidden="true"></i>Profile
+              <i class="fas fa-user-circle" aria-hidden="true"></i> Profile
             </a>
             <a ngbDropdownItem *ngIf="!token" (click)="closeDropdown(dropdown); collapse();" class="dropdown-item"
               [routerLink]="['/login']">
-              <i class="fas fa-key" aria-hidden="true"></i>Login
+              <i class="fas fa-key" aria-hidden="true"></i> Login
             </a>
             <a ngbDropdownItem *ngIf="token" (click)="closeDropdown(dropdown); collapse(); logout();" class="dropdown-item"
               [routerLink]="['/logout']">
-              <i class="fas fa-key" aria-hidden="true"></i>Logout
+              <i class="fas fa-key" aria-hidden="true"></i> Logout
             </a>
             <a ngbDropdownItem *ngIf="!token" (click)="closeDropdown(dropdown); collapse();" class="dropdown-item"
               [routerLink]="['/register']">
-              <i class="fas fa-group" aria-hidden="true"></i>Register
+              <i class="fas fa-user-plus" aria-hidden="true"></i> Register
             </a>
           </div>
         </li>
