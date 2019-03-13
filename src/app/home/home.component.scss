@@ -1,7 +1,7 @@
 ngb-carousel {
   min-width: 1000px !important;
   max-width: 1500px !important;
-  max-height: 400px !important;
+  max-height: 450px !important;
   margin-left: auto !important;
   margin-right: auto !important;
   margin-top: 30px !important;
@@ -12,4 +12,11 @@ ngb-carousel {
   left: 50% !important;
   transform: translateX((-50%)) !important;
   height: 400px !important;
+}
+
+img {
+  height: 500px;
+  width: 100%;
+  object-fit: cover;
+  object-position: 100% 0%;
 }
