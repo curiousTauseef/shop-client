@@ -23,7 +23,9 @@ export class AppComponent {
     dropdown.close();
   }
 
-  logout() {}
+  logout() {
+    localStorage.removeItem('token');
+  }
 
   search() {}
 }
