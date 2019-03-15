@@ -12,13 +12,15 @@ import { MessageComponent } from './message/message.component';
 
 import { DataService } from './services/data.service';
 import { AuthService } from './services/auth.service';
+import { LoginComponent } from './auth/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     MessageComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
