@@ -20,14 +20,17 @@ export class RegistrationComponent implements OnInit {
   }
 
   register() {
-    this.authService.register(this.formData).subscribe(data => {
-      if (data.success === true) {
-        localStorage.setItem('token', data.token);
-        this.router.navigate(['']);
-      } else {
-        console.log(data.message);
-      }
-    });
+    this.authService.register(this.formData).subscribe(
+      data => {
+        if (data.success === true) {
+          localStorage.setItem('token', data.token);
+          this.router.navigate(['']);
+        } else {
+          console.log(data.message);
+        }
+      },
+      err => console.log(err)
+    );
   }
 
   checkPasswords(password, confirmPassword) {

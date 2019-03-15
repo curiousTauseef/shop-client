@@ -16,13 +16,16 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.authService.login(this.formData).subscribe(data => {
-      if (data.success === true) {
-        localStorage.setItem('token', data.token);
-        this.router.navigate(['']);
-      } else {
-        console.log(data.message);
-      }
-    });
+    this.authService.login(this.formData).subscribe(
+      data => {
+        if (data.success === true) {
+          localStorage.setItem('token', data.token);
+          this.router.navigate(['']);
+        } else {
+          console.log(data.message);
+        }
+      },
+      err => console.log(err)
+    );
   }
 }
