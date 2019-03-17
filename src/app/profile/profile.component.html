@@ -1,0 +1,41 @@
+<section id="profile">
+  <div class="container p-5">
+    <h4 class="display-4">My Profile</h4>
+    <hr>
+    <div class="m-auto" *ngIf="!loggedUser">
+      <h1 class="text-center display-3 mt-5">
+        <i class="fas fa-spinner fa-spin"></i>
+      </h1>
+    </div>
+    <div class="row mt-5" *ngIf="loggedUser">
+      <div class="col-md-3">
+        <img [src]="loggedUser.picture" class="rounded-circle image">
+      </div>
+      <div class="col-md-8 ml-3">
+        <p id="name" class="lead">{{ loggedUser.name }}</p>
+        <a [routerLink]="['/profile/orders']" class="btn btn-warning" routerLinkActive="router-link-active">My Orders</a>
+        <br><br>
+        <a [routerLink]="['/profile/settings']" class="btn btn-warning" routerLinkActive="router-link-active">Change
+          Account Settings</a>
+        <br><br>
+        <a [routerLink]="['/profile/address']" class="btn btn-warning" routerLinkActive="router-link-active">Change
+          Shipping Address</a>
+        <br><br>
+        <div *ngIf="loggedUser.isSeller">
+          <p class="lead">Seller Actions</p>
+          <hr>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <a [routerLink]="['/profile/post-product']" class="btn btn-outline-success btn-block" routerLinkActive="router-link-active">Sell
+                a Product</a>
+            </div>
+            <div class="col-md-6">
+              <a [routerLink]="['/profile/my-products']" class="btn btn-outline-info btn-block" routerLinkActive="router-link-active">My
+                Products</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

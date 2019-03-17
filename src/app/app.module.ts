@@ -13,6 +13,7 @@ import { MessageComponent } from './message/message.component';
 import { DataService } from './services/data.service';
 import { AuthService } from './services/auth.service';
 import { LoginComponent } from './auth/login/login.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LoginComponent } from './auth/login/login.component';
     HomeComponent,
     MessageComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

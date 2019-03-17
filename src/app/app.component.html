@@ -24,6 +24,7 @@
           <a class="nav-link dropdown-toggle" ngbDropdownToggle>
             <i class="fas fa-user mr-1"></i>
             <span *ngIf="!token"> Account</span>
+            <span *ngIf="loggedUser">{{ loggedUser.name }}</span>
           </a>
           <div ngbDropdownMenu class="dropdown-menu">
             <a ngbDropdownItem *ngIf="token" (click)="closeDropdown(dropdown); collapse();" class="dropdown-item"
