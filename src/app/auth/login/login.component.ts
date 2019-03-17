@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
-import { ProfileService } from 'src/app/services/profile.service';
 
 @Component({
   selector: 'app-login',
@@ -10,11 +9,8 @@ import { ProfileService } from 'src/app/services/profile.service';
 })
 export class LoginComponent implements OnInit {
   formData: any = {};
-  constructor(
-    private authService: AuthService,
-    private router: Router,
-    private profileService: ProfileService
-  ) {}
+  showSpinner = false;
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
     this.formData = {};
@@ -25,8 +21,11 @@ export class LoginComponent implements OnInit {
       data => {
         if (data.success === true) {
           localStorage.setItem('token', data.token);
-          this.profileService.getProfile();
-          this.router.navigate(['']);
+          this.showSpinner = true;
+          setTimeout(() => {
+            location.reload();
+            this.router.navigate(['']);
+          }, 1500);
         } else {
           console.log(data.message);
         }

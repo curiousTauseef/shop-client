@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-import { ProfileService } from 'src/app/services/profile.service';
 
 @Component({
   selector: 'app-registration',
@@ -13,11 +12,7 @@ export class RegistrationComponent implements OnInit {
   errorMessage: string;
   showSpinner = false;
 
-  constructor(
-    private authService: AuthService,
-    private router: Router,
-    private profileService: ProfileService
-  ) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
     this.formData = {};
@@ -29,8 +24,11 @@ export class RegistrationComponent implements OnInit {
       data => {
         if (data.success === true) {
           localStorage.setItem('token', data.token);
-          this.profileService.getProfile();
-          this.router.navigate(['']);
+          this.showSpinner = true;
+          setTimeout(() => {
+            location.reload();
+            this.router.navigate(['']);
+          }, 1500);
         } else {
           console.log(data.message);
         }
