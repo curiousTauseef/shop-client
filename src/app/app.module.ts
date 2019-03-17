@@ -15,6 +15,7 @@ import { AuthService } from './services/auth.service';
 import { LoginComponent } from './auth/login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './profile/settings/settings.component';
+import { AddressComponent } from './profile/address/address.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SettingsComponent } from './profile/settings/settings.component';
     RegistrationComponent,
     LoginComponent,
     ProfileComponent,
-    SettingsComponent
+    SettingsComponent,
+    AddressComponent
   ],
   imports: [
     BrowserModule,
