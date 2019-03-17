@@ -16,4 +16,10 @@ export class ProfileService {
   getProfile(): Observable<any> {
     return this.http.get(this.baseUrl + '/profile', { headers: this.headers });
   }
+
+  updateSettings(data): Observable<any> {
+    return this.http.put(this.baseUrl + '/profile', data, {
+      headers: this.headers
+    });
+  }
 }

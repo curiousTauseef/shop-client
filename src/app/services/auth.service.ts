@@ -11,7 +11,7 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   getHeaders() {
-    const token = localStorage.getItem('token');
+    const token = this.getToken();
     return token ? new HttpHeaders().set('Authorization', token) : null;
   }
 

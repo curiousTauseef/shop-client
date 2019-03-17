@@ -14,6 +14,7 @@ import { DataService } from './services/data.service';
 import { AuthService } from './services/auth.service';
 import { LoginComponent } from './auth/login/login.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SettingsComponent } from './profile/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProfileComponent } from './profile/profile.component';
     MessageComponent,
     RegistrationComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
