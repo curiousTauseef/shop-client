@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from 'src/app/services/profile.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-address',
@@ -8,7 +9,7 @@ import { ProfileService } from 'src/app/services/profile.service';
 })
 export class AddressComponent implements OnInit {
   formData: any;
-  constructor(private profileService: ProfileService) {}
+  constructor(private profileService: ProfileService, private router: Router) {}
 
   ngOnInit() {
     this.getAddress();
@@ -18,7 +19,17 @@ export class AddressComponent implements OnInit {
     this.profileService.getProfile().subscribe(
       data => {
         this.formData = data.user.address;
-        console.log(this.formData);
+      },
+      err => console.log(err)
+    );
+  }
+
+  updateAddress() {
+    this.profileService.updateAddress(this.formData).subscribe(
+      () => {
+        setTimeout(() => {
+          this.router.navigate(['/profile']);
+        }, 500);
       },
       err => console.log(err)
     );

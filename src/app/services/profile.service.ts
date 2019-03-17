@@ -22,4 +22,10 @@ export class ProfileService {
       headers: this.headers
     });
   }
+
+  updateAddress(data): Observable<any> {
+    return this.http.post(this.baseUrl + '/address', data, {
+      headers: this.headers
+    });
+  }
 }
