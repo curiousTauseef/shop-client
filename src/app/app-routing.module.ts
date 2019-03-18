@@ -8,6 +8,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './profile/settings/settings.component';
 import { AddressComponent } from './profile/address/address.component';
 import { CategoryListComponent } from './categories/category-list/category-list.component';
+import { CategoryComponent } from './categories/category/category.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,11 @@ const routes: Routes = [
   {
     path: 'categories',
     component: CategoryListComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'categories/:id',
+    component: CategoryComponent,
     canActivate: [AuthGuard]
   },
   {

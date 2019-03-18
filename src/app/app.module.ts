@@ -18,6 +18,7 @@ import { SettingsComponent } from './profile/settings/settings.component';
 import { AddressComponent } from './profile/address/address.component';
 import { CategoryListComponent } from './categories/category-list/category-list.component';
 import { CategoryFormComponent } from './categories/category-form/category-form.component';
+import { CategoryComponent } from './categories/category/category.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CategoryFormComponent } from './categories/category-form/category-form.
     SettingsComponent,
     AddressComponent,
     CategoryListComponent,
-    CategoryFormComponent
+    CategoryFormComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
