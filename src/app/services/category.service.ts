@@ -18,6 +18,12 @@ export class CategoryService {
     });
   }
 
+  post(data): Observable<any> {
+    return this.http.post(this.baseUrl + '/categories', data, {
+      headers: this.headers
+    });
+  }
+
   getSingle(id): Observable<any> {
     return this.http.get(this.baseUrl + '/categories/' + id, {
       headers: this.headers

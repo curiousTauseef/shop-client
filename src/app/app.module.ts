@@ -19,6 +19,7 @@ import { AddressComponent } from './profile/address/address.component';
 import { CategoryListComponent } from './categories/category-list/category-list.component';
 import { CategoryFormComponent } from './categories/category-form/category-form.component';
 import { CategoryComponent } from './categories/category/category.component';
+import { MyProductListComponent } from './products/seller/my-product-list/my-product-list.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { CategoryComponent } from './categories/category/category.component';
     AddressComponent,
     CategoryListComponent,
     CategoryFormComponent,
-    CategoryComponent
+    CategoryComponent,
+    MyProductListComponent
   ],
   imports: [
     BrowserModule,

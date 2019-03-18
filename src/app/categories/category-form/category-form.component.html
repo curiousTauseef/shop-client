@@ -1,3 +1,16 @@
-<p>
-  category-form works!
-</p>
+<div class="card bg-light mt-5">
+  <div class="card-body">
+    <h4 class="card-title">Add new Category</h4>
+    <hr>
+    <form #categorForm="ngForm">
+      <div class="form-group">
+        <label for="Category">Category</label>
+        <input type="text" name="name" id="name" #name="ngModel" class="form-control" [(ngModel)]="formData.name"
+          required>
+        <button [disabled]="!categorForm.form.valid" type="submit" class="btn btn-info" [disabled]="!categorForm.form.valid"
+          (click)="createCategory()">Add
+          Category</button>
+      </div>
+    </form>
+  </div>
+</div>

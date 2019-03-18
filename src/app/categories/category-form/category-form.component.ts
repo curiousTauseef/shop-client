@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
   selector: 'app-category-form',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./category-form.component.scss']
 })
 export class CategoryFormComponent implements OnInit {
-
-  constructor() { }
+  formData: any;
+  constructor(private categoryService: CategoryService) {}
 
   ngOnInit() {
+    this.formData = {};
   }
 
+  createCategory() {
+    this.categoryService.post(this.formData).subscribe(data => {
+      console.log(data);
+      this.formData = {};
+    });
+  }
 }

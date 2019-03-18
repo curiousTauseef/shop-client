@@ -9,6 +9,7 @@ import { SettingsComponent } from './profile/settings/settings.component';
 import { AddressComponent } from './profile/address/address.component';
 import { CategoryListComponent } from './categories/category-list/category-list.component';
 import { CategoryComponent } from './categories/category/category.component';
+import { MyProductListComponent } from './products/seller/my-product-list/my-product-list.component';
 
 const routes: Routes = [
   {
@@ -48,6 +49,11 @@ const routes: Routes = [
   {
     path: 'profile/address',
     component: AddressComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'profile/my-products',
+    component: MyProductListComponent,
     canActivate: [AuthGuard]
   },
   {
