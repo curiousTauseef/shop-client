@@ -7,6 +7,7 @@ import { AuthGuard } from './services/auth.guard';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './profile/settings/settings.component';
 import { AddressComponent } from './profile/address/address.component';
+import { CategoryListComponent } from './categories/category-list/category-list.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,11 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'categories',
+    component: CategoryListComponent,
     canActivate: [AuthGuard]
   },
   {

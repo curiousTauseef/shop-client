@@ -16,6 +16,8 @@ import { LoginComponent } from './auth/login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './profile/settings/settings.component';
 import { AddressComponent } from './profile/address/address.component';
+import { CategoryListComponent } from './categories/category-list/category-list.component';
+import { CategoryFormComponent } from './categories/category-form/category-form.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { AddressComponent } from './profile/address/address.component';
     LoginComponent,
     ProfileComponent,
     SettingsComponent,
-    AddressComponent
+    AddressComponent,
+    CategoryListComponent,
+    CategoryFormComponent
   ],
   imports: [
     BrowserModule,
