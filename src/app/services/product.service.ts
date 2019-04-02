@@ -20,4 +20,8 @@ export class ProductService {
   getSingle(id): Observable<any> {
     return this.http.get(this.baseUrl + '/products/' + id);
   }
+
+  getAll(): Observable<any> {
+    return this.http.get(this.baseUrl + '/products');
+  }
 }

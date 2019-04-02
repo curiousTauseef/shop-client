@@ -15,4 +15,32 @@
       </ng-template>
     </ngb-carousel>
   </div>
+  <div class="container p-5">
+    <p class="lead">
+      <b>Recommended Deals:</b>
+    </p>
+    <div class="row">
+      <div *ngIf="!products" class="m-auto">
+        <h1 class="text-center display-3 mt-5">
+          <i class="fas fa-spinner fa-spin"></i>
+        </h1>
+      </div>
+      <div class="col-md-3 mb-5" *ngFor="let product of products">
+        <a [routerLink]="['products', product._id]" routerLinkActive="router-link-active">
+          <div class="card bg-light">
+            <img src="https://res.cloudinary.com/bkichob/image/upload/v{{product.imageVersion}}/{{product.imageId}}"
+              alt="" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">
+                {{ product.title }}
+              </h5>
+              <p class="card-text">
+                {{ product.price | currency }}
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
 </section>
