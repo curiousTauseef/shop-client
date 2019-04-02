@@ -1,3 +1,43 @@
-<p>
-  {{ category?.name }}
-</p>
+<section id="category">
+  <div class="container p-3 p-md-5">
+    <div class="m-auto" *ngIf="!category">
+      <h1 class="text-center display-3 mt-5">
+        <i class="fas fa-spinner fa-spin"></i>
+      </h1>
+    </div>
+    <h3 class="display-2 text-center mt-5" *ngIf="category && !products.length">
+      No Products inside this Category.
+    </h3>
+    <div *ngIf="category && products.length">
+      <p>{{ lower }} - {{ upper }} of {{ totalProducts }} products in {{ category }}</p>
+      <hr>
+      <div class="product" *ngFor="let product of products">
+        <div class="row">
+          <div class="col-5 col-md-2">
+            <a [routerLink]="['/products', product._id]" routerLinkActive="router-link-active">
+              <img src="https://res.cloudinary.com/bkichob/image/upload/v{{product.imageVersion}}/{{product.imageId}}"
+                class="img-fluid img-thumbnail" alt="">
+            </a>
+          </div>
+          <div class="col-5 col-md-8">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <h5>
+                  <a [routerLink]="['/products', product._id]" routerLinkActive="router-link-active">{{ product.title
+                    }}</a>
+                </h5>
+                <p>
+                  <small class="text-muted">{{ product.category._id }}</small>
+                </p>
+                <p>{{ product.price | currency }}</p>
+              </div>
+              <div class="col-md-6"></div>
+            </div>
+          </div>
+        </div>
+        <hr>
+      </div>
+      <ngb-pagination [collectionSize]="totalProducts" [pageSize]="10" [(page)]="page" (pageChange)="getCategory()"></ngb-pagination>
+    </div>
+  </div>
+</section>

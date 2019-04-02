@@ -10,6 +10,7 @@ import { AddressComponent } from './profile/address/address.component';
 import { CategoryListComponent } from './categories/category-list/category-list.component';
 import { CategoryComponent } from './categories/category/category.component';
 import { MyProductListComponent } from './products/seller/my-product-list/my-product-list.component';
+import { ProductComponent } from './products/product/product.component';
 
 const routes: Routes = [
   {
@@ -28,13 +29,15 @@ const routes: Routes = [
   },
   {
     path: 'categories',
-    component: CategoryListComponent,
-    canActivate: [AuthGuard]
+    component: CategoryListComponent
   },
   {
     path: 'categories/:id',
-    component: CategoryComponent,
-    canActivate: [AuthGuard]
+    component: CategoryComponent
+  },
+  {
+    path: 'products/:id',
+    component: ProductComponent
   },
   {
     path: 'profile',

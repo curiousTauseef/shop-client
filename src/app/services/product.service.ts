@@ -16,4 +16,8 @@ export class ProductService {
       headers: this.headers
     });
   }
+
+  getSingle(id): Observable<any> {
+    return this.http.get(this.baseUrl + '/products/' + id);
+  }
 }

@@ -24,8 +24,8 @@ export class CategoryService {
     });
   }
 
-  getSingle(id): Observable<any> {
-    return this.http.get(this.baseUrl + '/categories/' + id, {
+  getSingle(id, page): Observable<any> {
+    return this.http.get(this.baseUrl + '/categories/' + id + '?page=' + page, {
       headers: this.headers
     });
   }
