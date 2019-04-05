@@ -22,6 +22,10 @@ import { CategoryComponent } from './categories/category/category.component';
 import { MyProductListComponent } from './products/seller/my-product-list/my-product-list.component';
 import { ProductComponent } from './products/product/product.component';
 
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +47,8 @@ import { ProductComponent } from './products/product/product.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    SocketIoModule.forRoot(config)
   ],
   providers: [DataService, AuthService],
   bootstrap: [AppComponent]

@@ -35,3 +35,19 @@ h5 {
   margin-right: auto;
   margin-bottom: 2rem;
 }
+
+ngb-rating {
+  font-size: 2rem;
+  color: #d3d3d3;
+}
+
+.full {
+  color: gold;
+}
+
+.half {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  color: gold;
+}

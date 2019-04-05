@@ -24,4 +24,10 @@ export class ProductService {
   getAll(): Observable<any> {
     return this.http.get(this.baseUrl + '/products');
   }
+
+  postReview(data): Observable<any> {
+    return this.http.post(this.baseUrl + '/reviews', data, {
+      headers: this.headers
+    });
+  }
 }
