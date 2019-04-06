@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from './services/profile.service';
 import { Socket } from 'ngx-socket-io';
+import { OrderService } from './services/order.service';
 
 @Component({
   selector: 'app-root',
@@ -9,18 +10,25 @@ import { Socket } from 'ngx-socket-io';
 })
 export class AppComponent implements OnInit {
   title = 'shop';
+  cartItems: number;
 
   searchTerm = '';
   isCollapsed = true;
   loggedUser: any;
 
-  constructor(private profileService: ProfileService, private socket: Socket) {}
+  constructor(
+    private profileService: ProfileService,
+    private socket: Socket,
+    public orderService: OrderService
+  ) {}
 
   ngOnInit() {
     this.socket.on('refreshPage', () => {
       this.getProfile();
+      this.cartItems = this.orderService.getCart().length;
     });
     this.getProfile();
+    this.cartItems = this.orderService.getCart().length;
   }
 
   get token() {
@@ -46,6 +54,7 @@ export class AppComponent implements OnInit {
   logout() {
     this.loggedUser = {};
     localStorage.removeItem('token');
+    this.orderService.cartItems = 0;
   }
 
   search() {}

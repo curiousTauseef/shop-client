@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 import { ActivatedRoute } from '@angular/router';
 import { Socket } from 'ngx-socket-io';
+import { OrderService } from 'src/app/services/order.service';
 
 @Component({
   selector: 'app-product',
@@ -15,7 +16,8 @@ export class ProductComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
-    private socket: Socket
+    private socket: Socket,
+    private orderService: OrderService
   ) {}
 
   ngOnInit() {
@@ -52,5 +54,10 @@ export class ProductComponent implements OnInit {
       },
       err => console.log(err)
     );
+  }
+
+  addToCart() {
+    this.orderService.addToCart(this.product);
+    this.socket.emit('refresh', {});
   }
 }
