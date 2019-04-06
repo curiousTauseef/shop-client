@@ -3,6 +3,7 @@ import { ProductService } from 'src/app/services/product.service';
 import { ActivatedRoute } from '@angular/router';
 import { Socket } from 'ngx-socket-io';
 import { OrderService } from 'src/app/services/order.service';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-product',
@@ -59,5 +60,17 @@ export class ProductComponent implements OnInit {
   addToCart() {
     this.orderService.addToCart(this.product);
     this.socket.emit('refresh', {});
+  }
+
+  removeFromCart() {
+    this.orderService.removeFromCart(this.product);
+    this.socket.emit('refresh', {});
+  }
+
+  compareCartItem() {
+    return _.some(this.orderService.getCart(), [
+      'id',
+      this.route.snapshot.paramMap.get('id')
+    ]);
   }
 }

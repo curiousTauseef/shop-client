@@ -33,7 +33,7 @@ export class OrderService {
   removeFromCart(item: any) {
     let cart: any = this.getCart();
     if (cart.find(data => JSON.stringify(data) === JSON.stringify(item))) {
-      cart = cart.filter(data => JSON.stringify(data !== JSON.stringify(item)));
+      cart = cart.filter(data => JSON.stringify(data) !== JSON.stringify(item));
       this.cartItems--;
       localStorage.setItem('cart', JSON.stringify(cart));
     }

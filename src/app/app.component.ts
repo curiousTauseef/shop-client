@@ -19,16 +19,16 @@ export class AppComponent implements OnInit {
   constructor(
     private profileService: ProfileService,
     private socket: Socket,
-    public orderService: OrderService
+    private orderService: OrderService
   ) {}
 
   ngOnInit() {
+    this.getProfile();
+    this.cartItems = this.orderService.getCart().length;
     this.socket.on('refreshPage', () => {
       this.getProfile();
       this.cartItems = this.orderService.getCart().length;
     });
-    this.getProfile();
-    this.cartItems = this.orderService.getCart().length;
   }
 
   get token() {

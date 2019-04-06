@@ -40,7 +40,12 @@
                 Price: {{ product.price | currency }}
               </h5>
               <br><br>
-              <a class="btn btn-warning btn-block" (click)="addToCart()">Add to Cart</a>
+              <div *ngIf="compareCartItem() === false">
+                <a class="btn btn-warning btn-block" (click)="addToCart()">Add to Cart</a>
+              </div>
+              <div *ngIf="compareCartItem() === true">
+                <a class="btn btn-info btn-block" (click)="removeFromCart()">Remove from Cart</a>
+              </div>
             </div>
           </div>
         </div>
