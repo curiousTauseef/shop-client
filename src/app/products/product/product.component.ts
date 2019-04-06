@@ -48,6 +48,7 @@ export class ProductComponent implements OnInit {
     this.productService.postReview(form).subscribe(
       () => {
         this.socket.emit('refresh', {});
+        this.formData = {};
       },
       err => console.log(err)
     );

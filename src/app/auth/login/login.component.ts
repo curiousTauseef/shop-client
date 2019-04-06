@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { Socket } from 'ngx-socket-io';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,11 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   formData: any = {};
   showSpinner = false;
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private socket: Socket
+  ) {}
 
   ngOnInit() {
     this.formData = {};
@@ -20,12 +25,10 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.formData).subscribe(
       data => {
         if (data.success === true) {
+          this.socket.emit('refresh', {});
           localStorage.setItem('token', data.token);
           this.showSpinner = true;
-          setTimeout(() => {
-            location.reload();
-            this.router.navigate(['']);
-          }, 1500);
+          this.router.navigate(['']);
         } else {
           console.log(data.message);
         }

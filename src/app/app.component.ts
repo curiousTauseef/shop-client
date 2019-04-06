@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from './services/profile.service';
+import { Socket } from 'ngx-socket-io';
 
 @Component({
   selector: 'app-root',
@@ -13,9 +14,12 @@ export class AppComponent implements OnInit {
   isCollapsed = true;
   loggedUser: any;
 
-  constructor(private profileService: ProfileService) {}
+  constructor(private profileService: ProfileService, private socket: Socket) {}
 
   ngOnInit() {
+    this.socket.on('refreshPage', () => {
+      this.getProfile();
+    });
     this.getProfile();
   }
 
